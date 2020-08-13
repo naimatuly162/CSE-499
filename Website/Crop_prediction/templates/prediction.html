@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<h2>Pre-selected Option</h2>
+    <h1>Major Crop Yield Prediction</h1>
 
-<p>You can preselect an option with the selected attribute:</p>
 
-<form method="POST">
-  {% csrf_token %}
 
-  <label for="District">Choose District:</label>
-  <select id="District" name="Districts">
-    <option value="Bandarban">Bandarban</option>
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="District">Choose District:</label>
+        <select id="District" name="Districts">
     <option value="Barishal">Barishal</option>
     <option value="Bogra">Bogra</option>
     <option value="Chittagong">Chittagong</option>
@@ -19,12 +19,8 @@
     <option value="Dhaka">Dhaka</option>
     <option value="Dinajpur">Dinajpur</option>
     <option value="Faridpur">Faridpur</option>
-    <option value="Jamalpur">Jamalpur</option>
     <option value="Jessore">Jessore</option>
-    <option value="Khagrachari">Khagrachari</option>
     <option value="Khulna">Khulna</option>
-    <option value="kishoreganj">kishoreganj</option>
-    <option value="Kushtia">Kushtia</option>
     <option value="Mymensingh">Mymensingh</option>
     <option value="Noakhali">Noakhali</option>
     <option value="Pabna">Pabna</option>
@@ -36,54 +32,56 @@
     <option value="Tangail">Tangail</option>
   </select>
 
-  <label for="Crops">Choose Crops:</label>
-  <select id="Crops" name="Crop">
+        <label for="Crops">Choose Crops:</label>
+        <select id="Crops" name="Crop">
     <option value="Aman">Aman</option>
     <option value="Aus">Aus</option>
     <option value="Boro">Boro</option>
     <option value="Jute">Jute</option>
-    <option value="Poatao">Poatao</option>
-    <option value="Wheat">Wheat</option>
+
   </select>
 
-  <label for="Category">Choose Crops Category:</label>
-  <select id="Category" name="Category">
-    <option value="Local">Broadcast</option>
-    <option value="Hyv">HYV</option>
-    <option value="Local">Local</option>
-    <option value="Pajam">Pajam</option>
-    <option value="Hybrid">Hybrid</option>
-  </select>
 
-  <label for="Area">Area:</label>
-  <input type="text" name="Area">
+        <label for="Area">Area:</label>
+        <input type="text" name="Area">
 
-  <label for="Year">Year:</label>
-  <input type="text" name="Year"> <br><br>
+        <label for="Year">Year:</label>
+        <input type="text" name="Year"> <br><br>
 
-  <input type="submit">
-</form>  <br><br>
+        <input type="submit">
+    </form> <br><br> {% if Crop == 'Aman' %}
 
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>November, December and January</b>. if you harvest {{ Crop}} in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production
+        will be <b>{{ y_pred }} </b>Matric Ton
+    </p>
 
-<label for="Category"> Humidity :</label>
-{{ a }} mm
-<br>
-<label for="Category"> Rainfall :</label>
-{{ b }} mm
-<br>
-<label for="Category"> Altitude :</label>
-{{ c }} mm
-<br>
-<label for="Category"> Bright Sunshine :</label>
-{{ d }} mm
-<br>
-<label for="Category"> Cloud Coverage :</label>
-{{ e }} mm
-<br>
-<label for="Category"> Minimum Temperature :</label>
-{{ f }} mm
-<br>
-<label for="Category"> Wind Speed :</label>
-{{ g }} mm
+    {% else %}
+    <p></p>
+    {% endif %} {% if Crop == 'Aus' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>July and August</b>. if you harvest {{ Crop}} in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production will be <b>{{ y_pred }} </b>Matric
+        Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %}{% if Crop == 'Boro' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>April, May and June</b>. if you harvest {{ Crop}} in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production will be
+        <b>{{ y_pred }} </b>Matric Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %} {% if Crop == 'Jute' %}
+
+    <p>{{ Crop}} is one of the main crops in Bangladesh.the harvesting time of {{ Crop }} are <b>March, April, May and June</b>. if you harvest Aman in<b> {{ District }}</b> maintaining these seasons we can assure <b>{{ y_pre }}</b>% the production will
+        be <b>{{ y_pred }} </b>Matric Ton
+    </p>
+
+    {% else %}
+    <p></p>
+    {% endif %}
 </body>
+
 </html>
